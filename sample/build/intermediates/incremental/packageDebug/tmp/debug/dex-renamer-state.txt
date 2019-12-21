@@ -1,4 +1,0 @@
-#Sat Dec 21 16:14:00 CST 2019
-base.0=/Volumes/Jolly/coding/github_projects/network-stats/sample/build/intermediates/transforms/dexMerger/debug/0
-path.0=classes.dex
-renamed.0=classes.dex

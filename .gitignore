@@ -12,3 +12,7 @@
 /captures
 .externalNativeBuild
 /.idea/
+sample/build
+library/build
+library/schemas/
+
