@@ -22,7 +22,7 @@ buildscript {
 apply plugin: 'android-aspectjx'
    
 dependencies {
-    implementation 'com.cars.crm:network-stats:1.0.0'
+    implementation 'com.nelson.android:network-stats:1.0.0'
 }
 ```
 
