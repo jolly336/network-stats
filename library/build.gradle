@@ -3,6 +3,7 @@ import org.aspectj.bridge.MessageHandler
 import org.aspectj.tools.ajc.Main
 
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 buildscript {
     repositories {
@@ -86,5 +87,16 @@ variants.all { variant ->
             }
         }
     }
+}
+
+// jcenter configuration for novoda's bintray-release
+// $ ./gradlew clean build bintrayUpload -PbintrayUser=BINTRAY_USERNAME -PbintrayKey=BINTRAY_KEY -PdryRun=false
+publish {
+    userOrg = 'nelsonwon'
+    groupId = 'com.nelson.android'
+    artifactId = 'network-stats'
+    publishVersion = '1.0.0'
+    desc = '一个统计 HTTP 流量的 Android 库'
+    website = 'http://nelsonblog.me/'
 }
 

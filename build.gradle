@@ -9,14 +9,16 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.1'
         classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.8'
+
+        // Bintary
+        classpath 'com.novoda:bintray-release:0.9.1'
     }
 }
 
 allprojects {
     repositories {
         google()
-        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
-
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
     }
 }
 

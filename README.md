@@ -73,7 +73,7 @@ android {
 }
    
 dependencies {
-    implementation 'com.nelson:network-stats:1.0.0'
+    implementation 'com.nelson.android:network-stats:1.0.0'
 }
 
 aspectjx {
