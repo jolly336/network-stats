@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Sat Dec 21 16:08:31 CST 2019
+0.baseType=DIRECTORY
+0.base=/Volumes/Jolly/coding/github_projects/network-stats/sample/build/intermediates/transforms/dexMerger/debug/0
+0.path=classes.dex
+0.set=DEX
+count=1
