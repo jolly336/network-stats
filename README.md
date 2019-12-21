@@ -30,7 +30,7 @@ dependencies {
 
 ```groovy
 aspectjx {
-    exclude 'com.cars.crm.stats'
+    exclude 'com.nelson.crm.stats'
 }
 ```
 
