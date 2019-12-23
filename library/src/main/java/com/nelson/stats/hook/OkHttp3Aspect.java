@@ -19,7 +19,7 @@ public class OkHttp3Aspect {
      *
      * <a href="https://www.jianshu.com/p/f90e04bcb326">AOP 之 AspectJ 全面剖析 in Android</a>
      */
-    @Around("get(* okhttp3.OkHttpClient.eventListenerFactory)")
+    @Around("get(okhttp3.EventListener.Factory okhttp3.OkHttpClient.eventListenerFactory)")
     public Object aroundEventFactoryGet(ProceedingJoinPoint joinPoint) throws Throwable {
         Object target = joinPoint.proceed();
         if (target instanceof EventListener.Factory) {

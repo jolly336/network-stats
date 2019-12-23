@@ -12,6 +12,9 @@ import com.nelson.stats.NetworkStatsManager;
 import com.nelson.stats.NetworkStatsManager.LoadCallBack;
 import com.nelson.stats.User;
 import java.util.List;
+import okhttp3.EventListener;
+import okhttp3.OkHttpClient;
+import okhttp3.OkHttpClient.Builder;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -28,6 +31,8 @@ import retrofit2.http.Path;
  * Created by Nelson on 2019-11-25.
  */
 public class RetrofitActivity extends FragmentActivity {
+
+    private static final String TAG = "RetrofitActivity";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -65,9 +70,24 @@ public class RetrofitActivity extends FragmentActivity {
 
     private void useRetrofit() {
         // Create a very simple REST adapter which points the GitHub API.
+        OkHttpClient client = new Builder().eventListener(new EventListener() {
+            @Override
+            public void callStart(okhttp3.Call call) {
+                super.callStart(call);
+                Log.e(TAG, "original eventListener call start....");
+            }
+
+            @Override
+            public void callEnd(okhttp3.Call call) {
+                super.callEnd(call);
+                Log.e(TAG, "original eventListener call end!!!");
+            }
+        }).build();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API_URL)
                 .addConverterFactory(FastJsonConverterFactory.create())
+                .client(client)
                 .build();
 
         // Create an instance of our GitHub API interface.
@@ -84,7 +104,7 @@ public class RetrofitActivity extends FragmentActivity {
                 Toast.makeText(RetrofitActivity.this, "请求成功！", Toast.LENGTH_SHORT).show();
                 List<Contributor> contributors = response.body();
                 for (Contributor contributor : contributors) {
-                    Log.e("nelson", contributor.login + " (" + contributor.contributions + ")");
+                    Log.e(TAG, contributor.login + " (" + contributor.contributions + ")");
                 }
             }
 
